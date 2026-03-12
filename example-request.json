@@ -1,0 +1,565 @@
+{
+  "input": {
+    "workflow": {
+      "13": {
+        "inputs": {
+          "value": 0.96,
+          "model": [
+            "19",
+            0
+          ]
+        },
+        "class_type": "CFGNorm",
+        "_meta": {
+          "title": "CFGNorm"
+        }
+      },
+      "14": {
+        "inputs": {
+          "width": [
+            "31",
+            1
+          ],
+          "height": [
+            "31",
+            2
+          ],
+          "batch_size": 1
+        },
+        "class_type": "EmptySD3LatentImage",
+        "_meta": {
+          "title": "EmptySD3LatentImage"
+        }
+      },
+      "15": {
+        "inputs": {
+          "text": "right",
+          "image1": [
+            "17",
+            0
+          ],
+          "image2": [
+            "38",
+            0
+          ]
+        },
+        "class_type": "ImageConcanate",
+        "_meta": {
+          "title": "ImageConcanate"
+        }
+      },
+      "16": {
+        "inputs": {
+          "value": 10,
+          "image": [
+            "15",
+            0
+          ],
+          "text": [
+            "20",
+            0
+          ]
+        },
+        "class_type": "AddLabel",
+        "_meta": {
+          "title": "AddLabel"
+        }
+      },
+      "17": {
+        "inputs": {
+          "text": "down",
+          "image1": [
+            "33",
+            0
+          ],
+          "image2": [
+            "31",
+            0
+          ]
+        },
+        "class_type": "ImageConcanate",
+        "_meta": {
+          "title": "ImageConcanate"
+        }
+      },
+      "18": {
+        "inputs": {
+          "value": 1,
+          "sigmas": [
+            "47",
+            0
+          ]
+        },
+        "class_type": "Sigmas Power",
+        "_meta": {
+          "title": "Sigmas Power"
+        }
+      },
+      "19": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "24",
+            0
+          ]
+        },
+        "class_type": "ModelSamplingAuraFlow",
+        "_meta": {
+          "title": "ModelSamplingAuraFlow"
+        }
+      },
+      "20": {
+        "inputs": {
+          "filename": "res_2s + beta + 4 steps (LoRa: Lightining 4steps, strenght: 0.6) + CFG Norm: 0.96"
+        },
+        "class_type": "PrimitiveStringMultiline",
+        "_meta": {
+          "title": "PrimitiveStringMultiline"
+        }
+      },
+      "21": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "16",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "22": {
+        "inputs": {
+          "filename": "qwen/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+          "model": [
+            "23",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "23": {
+        "inputs": {
+          "filename": "qwen-image-edit-2511-Q6_K.gguf"
+        },
+        "class_type": "UnetLoaderGGUF",
+        "_meta": {
+          "title": "UnetLoaderGGUF"
+        }
+      },
+      "24": {
+        "inputs": {
+          "filename": "qwen/bfs_head_v5_2511_merged_version_rank_16_fp16.safetensors",
+          "model": [
+            "22",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "25": {
+        "inputs": {
+          "filename": "qwen_image_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "26": {
+        "inputs": {
+          "filename": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "27": {
+        "inputs": {
+          "pixels": [
+            "33",
+            0
+          ],
+          "vae": [
+            "25",
+            0
+          ]
+        },
+        "class_type": "VAEEncode",
+        "_meta": {
+          "title": "VAEEncode"
+        }
+      },
+      "28": {
+        "inputs": {
+          "value": true,
+          "model": [
+            "13",
+            0
+          ],
+          "positive": [
+            "41",
+            0
+          ],
+          "negative": [
+            "42",
+            0
+          ],
+          "sampler": [
+            "43",
+            0
+          ],
+          "sigmas": [
+            "18",
+            0
+          ],
+          "latent_image": [
+            "14",
+            0
+          ],
+          "noise_seed": [
+            "48",
+            0
+          ]
+        },
+        "class_type": "SamplerCustom",
+        "_meta": {
+          "title": "SamplerCustom"
+        }
+      },
+      "29": {
+        "inputs": {
+          "pixels": [
+            "31",
+            0
+          ],
+          "vae": [
+            "25",
+            0
+          ]
+        },
+        "class_type": "VAEEncode",
+        "_meta": {
+          "title": "VAEEncode"
+        }
+      },
+      "31": {
+        "inputs": {
+          "value": 1328,
+          "image": [
+            "36",
+            0
+          ]
+        },
+        "class_type": "ImageResizeKJv2",
+        "_meta": {
+          "title": "ImageResizeKJv2"
+        }
+      },
+      "32": {
+        "inputs": {
+          "value": 0,
+          "image": [
+            "36",
+            0
+          ]
+        },
+        "class_type": "ImageResizeKJv2",
+        "_meta": {
+          "title": "ImageResizeKJv2"
+        }
+      },
+      "33": {
+        "inputs": {
+          "value": 1328,
+          "image": [
+            "44",
+            0
+          ]
+        },
+        "class_type": "ImageResizeKJv2",
+        "_meta": {
+          "title": "ImageResizeKJv2"
+        }
+      },
+      "34": {
+        "inputs": {
+          "value": [
+            {
+              "name": "A",
+              "selected": true,
+              "url": "/api/view?filename=rgthree.compare._temp_hjtfn_00007_.png&type=temp&subfolder=&rand=0.45206310115212844"
+            },
+            {
+              "name": "B",
+              "selected": true,
+              "url": "/api/view?filename=rgthree.compare._temp_hjtfn_00008_.png&type=temp&subfolder=&rand=0.7559335023246374"
+            }
+          ],
+          "image_a": [
+            "38",
+            0
+          ],
+          "image_b": [
+            "36",
+            0
+          ]
+        },
+        "class_type": "Image Comparer (rgthree)",
+        "_meta": {
+          "title": "Image Comparer (rgthree)"
+        }
+      },
+      "35": {
+        "inputs": {
+          "image": "19_Girl.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "Body Reference"
+        }
+      },
+      "36": {
+        "inputs": {
+          "filename": "nmkdSiaxCX_200k.safetensors",
+          "image": [
+            "35",
+            0
+          ]
+        },
+        "class_type": "CR Upscale Image",
+        "_meta": {
+          "title": "CR Upscale Image"
+        }
+      },
+      "37": {
+        "inputs": {
+          "samples": [
+            "28",
+            0
+          ],
+          "vae": [
+            "25",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "38": {
+        "inputs": {
+          "text": "reinhard",
+          "image_ref": [
+            "36",
+            0
+          ],
+          "image_target": [
+            "37",
+            0
+          ]
+        },
+        "class_type": "ColorMatch",
+        "_meta": {
+          "title": "ColorMatch"
+        }
+      },
+      "39": {
+        "inputs": {
+          "image": "Payton.jpg"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "Face Reference"
+        }
+      },
+      "40": {
+        "inputs": {
+          "filename_prefix": "Face_swap/oldman",
+          "images": [
+            "38",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "41": {
+        "inputs": {
+          "filename": "head_swap: start with Picture 1 as the base image, keeping its lighting, environment, and background. remove the head from Picture 1 completely and replace it with the head from Picture 2. ((ensure the head and body have correct anatomical proportions)), and blend the skin tones, shadows, and lighting naturally so the final result appears as one coherent, realistic person.",
+          "clip": [
+            "26",
+            0
+          ],
+          "vae": [
+            "25",
+            0
+          ],
+          "image1": [
+            "32",
+            0
+          ],
+          "image2": [
+            "44",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "42": {
+        "inputs": {
+          "conditioning": [
+            "41",
+            0
+          ]
+        },
+        "class_type": "ConditioningZeroOut",
+        "_meta": {
+          "title": "ConditioningZeroOut"
+        }
+      },
+      "43": {
+        "inputs": {
+          "text": "res_2s"
+        },
+        "class_type": "KSamplerSelect",
+        "_meta": {
+          "title": "KSamplerSelect"
+        }
+      },
+      "44": {
+        "inputs": {
+          "filename": "nmkdSiaxCX_200k.safetensors",
+          "image": [
+            "50",
+            0
+          ]
+        },
+        "class_type": "CR Upscale Image",
+        "_meta": {
+          "title": "CR Upscale Image"
+        }
+      },
+      "45": {
+        "inputs": {
+          "images": [
+            "44",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "46": {
+        "inputs": {
+          "value": false,
+          "sigmas": [
+            "18",
+            0
+          ]
+        },
+        "class_type": "SigmasPreview",
+        "_meta": {
+          "title": "SigmasPreview"
+        }
+      },
+      "47": {
+        "inputs": {
+          "text": "beta",
+          "model": [
+            "13",
+            0
+          ]
+        },
+        "class_type": "BasicScheduler",
+        "_meta": {
+          "title": "BasicScheduler"
+        }
+      },
+      "48": {
+        "inputs": {
+          "value": 830192263966613
+        },
+        "class_type": "Seed (rgthree)",
+        "_meta": {
+          "title": "Seed (rgthree)"
+        }
+      },
+      "49": {
+        "inputs": {
+          "value": [
+            {
+              "name": "A",
+              "selected": true,
+              "url": "/api/view?filename=rgthree.compare._temp_eslji_00007_.png&type=temp&subfolder=&rand=0.4342095224127317"
+            },
+            {
+              "name": "B",
+              "selected": true,
+              "url": "/api/view?filename=rgthree.compare._temp_eslji_00008_.png&type=temp&subfolder=&rand=0.9667515176909807"
+            }
+          ],
+          "image_a": [
+            "37",
+            0
+          ],
+          "image_b": [
+            "38",
+            0
+          ]
+        },
+        "class_type": "Image Comparer (rgthree)",
+        "_meta": {
+          "title": "Image Comparer (rgthree)"
+        }
+      },
+      "50": {
+        "inputs": {
+          "text": "reinhard",
+          "image_ref": [
+            "36",
+            0
+          ],
+          "image_target": [
+            "55",
+            0
+          ]
+        },
+        "class_type": "ColorMatch",
+        "_meta": {
+          "title": "ColorMatch"
+        }
+      },
+      "55": {
+        "inputs": {
+          "value": 512,
+          "image": [
+            "39",
+            0
+          ]
+        },
+        "class_type": "ImageResize+",
+        "_meta": {
+          "title": "ImageResize+"
+        }
+      }
+    }
+  }
+}
